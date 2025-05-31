@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메뉴바 예제</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      padding: 20px;
+    }
+
+    .navbar a {
+      position: relative;
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 5px 0;
+      transition: color 0.3s;
+    }
+
+    .navbar a::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: #333;
+      left: 0;
+      bottom: 0;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #000;
+    }
+
+    .navbar a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+      }
+    }
+
+    main {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    main p {
+        margin:5px 0; /* 위 아래 여백줄이기 (기본은 16px) 5px(위아래) 0(좌우)*/
+        line-height:1.2; /* 줄간 간격 줄이기 (기본은 1.6) */
+        color: black
+    }
+
+    main p.En {
+        margin:20px 0;
+        line-height: 1.2;
+        color:#a19d9d
+    }
+    
+
+    img.profile {
+        width: 500px;
+        border-radius: 20px; /* 너무 둥글지 않게 수정 */
+    }
+
+    /* 포트폴리오 카드 스타일 */
+    .portfolio-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 400px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05); /* 카드 전체 확대 */
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      filter: grayscale(100%); /* 기본 흑백 */
+      transition: transform 0.3s ease, filter 0.3s ease; /* 부드러운 효과 추가 */
+    }
+
+    .card:hover img {
+      filter: grayscale(0%); /* 마우스를 올리면 컬러로 */
+    }
+
+    .card h3 {
+      margin: 10px 0 5px;
+    }
+
+    .card p {
+      font-size: 14px;
+    }
+    
+    /* 하이퍼링크 카드 스타일 기본화 */
+
+    a.card-link {
+      text-decoration:none; /* 밑줄 제거*/
+      color:inherit; /* 상속된 색체 유지*/
+      display:inline-block;
+    }
+
+    a.card-link * {
+      color:inherit; /* 자식 요소도 색상 상속 강제 */
+      text-decoration:none;
+    }
+
+    .fa-envelope {
+        color:#555;
+        margin: 10px 0px;
+        display:inline-block;
+    }
+
+    .centered {
+        text-align:center;
+    }
+
+    .centered-icon {
+        text-align:center;
+        margin-top: 10px;
+    }
+
+    .centered-icon a {
+        margin: 0 5px;
+        text-decoration: none;
+    }
+
+    .centered-icon i {
+        font-size:x-large; /* 아이콘 크기 조정 값 */
+        color: #555; 
+    }
+    
+  </style>
+</head>
+<body oncontextmenu="return false;">
+<header>
+  <nav class="navbar">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+  </nav>
+</header>
+
+<main id="about">
+    <h2>About</h2>
+    <p>저는 케이순 라고 합니다.</p>
+    <p>창의적인 설계를 추구하며 공간에 감동을 주는 일을 하고있습니다.</p>
+    <p>현재 프리랜서로의 일을 준비하고 있습니다.</p>
+    <p>주요 업무로는 건축설계 및 공간디자인 그리고 일러스트 작업을 진행하고 있습니다.</p>
+    <p>업무 협업에 대해 관심 있으신 분들은 아래 연락처로 많은 문의 바랍니다.</p>
+    <p class="En">Hi!, I am Lkaysoon.<br>
+        I pursue creative design and strive to bring emotional impact to spaces.<br>
+        Currently, I am preparing to work as a freelancer.<br>
+        My main work involves architectural design, spatial planning, and illustration.<br>
+        If you're interested in collaboration, feel free to reach out using the contact information below.</p>
+    <div class="centered">
+    <i class="fas fa-envelope"></i> lkaysoonstudio@gmail.com<br>
+</div>
+    <img class="profile" src="케릭터.png" alt="건축가 마니 사진">
+</main>
+
+<main id="projects">
+    <h2>Projects</h2>
+    <div class="portfolio-container">
+      <div class="card">
+        <a class="card-link" href="detail1.html">
+        <img src="초이.jpeg" alt="초이동">
+        <h3>하남 물류센터 및 근린생활시설</h3>
+        <p>계획설계 허가 및 실시도면 작성 후 공사 감독관, 건축물 유지관리</p>
+        </a>
+      </div>
+      <div class="card">
+        <img src="평택.jpg" alt="평택">
+        <h3>평택 물류센터</h3>
+        <p>계획도면 및 허가도면 작성 (저온창고 및 상온창고)</p>
+      </div>
+      <div class="card">
+        <img src="" alt="송말리">
+        <h3>이천송말리 물류센터</h3>
+        <p>허가도면 및 실시도면 작성 사용승인 업무지원 (저온창고 및 상온창고)</p>
+      </div>    
+      <div class="card">
+        <img src="" alt="항동7가">
+        <h3>인천항동 물류센터</h3>
+        <p>허가도면 및 실시도면 작성 사용승인 업무지원 (저온창고 및 상온창고)</p>
+      </div>
+      <div class="card">
+        <img src="" alt="사천진리">
+        <h3>강릉사천 도시형숙박시설</h3>
+        <p>계획 및 허가도면 작성</p>
+      </div>
+      <div class="card">
+        <img src="" alt="남원">
+        <h3>남원수목원</h3>
+        <p>실시도면 작성 및 사용승인 업무지원</p>
+      </div>
+      <div class="card">
+        <img src="" alt="울산">
+        <h3>S-Oil Area1 & Area4</h3>
+        <p>Proposal & construction & Revision & As Built DWG.</p>
+      </div>
+      <div class="card">
+        <img src="" alt="Saudi Arabia">
+        <h3>Saudi Arabia</h3>
+        <p>Proposal & construction & Revision & As Built DWG.</p>
+      </div>
+      <div class="card">
+        <img src="" alt="Saudi Arabia">
+        <h3>Saudi Arabia</h3>
+        <p>Proposal & construction & Revision & As Built DWG.</p>
+      </div>
+    </div>
+</main>
+<div class="centered-icon">
+  <a href="mailto:lkaysoonstudio@gmail.com"><i class="fas fa-envelope"></i></a>
+  <a href="coming soon.html" target="_blank"><i class="fab fa-instagram"></i></a>
+</div>
+
+
+</body>
+</html>
