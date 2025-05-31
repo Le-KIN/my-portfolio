@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 반응형 적용 -->
+  <title>건축가 마니의 포트폴리오</title>
+
+  <style>
+    /* 기본 설정 */
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      scroll-behavior: smooth; /* 부드러운 스크롤 */
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 15px 0;
+      font-size: 24px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      background-color: #555;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 14px;
+      display: block;
+    }
+
+    nav ul li a:hover {
+      background-color: #777;
+    }
+
+    section {
+      padding: 40px 20px;
+    }
+
+    img.profile {
+      width: 500px;
+      border-radius: 20px; /* 너무 둥글지 않게 수정 */
+    }
+
+    /* 포트폴리오 카드 스타일 */
+    .portfolio-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 400px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05); /* 카드 전체 확대 */
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      filter: grayscale(100%); /* 기본 흑백 */
+      transition: transform 0.3s ease, filter 0.3s ease; /* 부드러운 효과 추가 */
+    }
+
+    .card:hover img {
+      filter: grayscale(0%); /* 마우스를 올리면 컬러로 */
+    }
+
+    .card h3 {
+      margin: 10px 0 5px;
+    }
+
+    .card p {
+      font-size: 14px;
+    }
+    
+    /* 하이퍼링크 카드 스타일 기본화 */
+
+    a.card-link {
+      text-decoration:none; /* 밑줄 제거*/
+      color:inherit; /* 상속된 색체 유지*/
+      display:inline-block;
+    }
+
+    a.card-link * {
+      color:inherit; /* 자식 요소도 색상 상속 강제 */
+      text-decoration:none;
+    }
+
+    /* 모바일 대응 */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    건축가 마니의 포트폴리오
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#about">소개</a></li>
+      <li><a href="#work">작업물</a></li>
+      <li><a href="#contact">연락</a></li>
+    </ul>
+  </nav>
+
+  <section id="about">
+    <h2>안녕하세요!</h2>
+    <p>저는 건축가 마니입니다. 창의적인 설계를 추구하며 공간에 감동을 더합니다.</p>
+    <img class="profile" src="케릭터.png" alt="건축가 마니 사진">
+  </section>
+
+  <section id="work">
+    <h2>작업물</h2>
+    <div class="portfolio-container">
+      <div class="card">
+        <a class="card-link" href="detail1.html">
+        <img src="초이.jpeg" alt="작업물1">
+        <h3>물류센터 및 근린생활시설</h3>
+        <p>경사를 이용한 물류센터와 근린생활시설을 설계</p>
+        </a>
+      </div>
+      <div class="card">
+        <img src="평택.jpg" alt="작업물2">
+        <h3>물류센터</h3>
+        <p>저온창고 및 상온창고 물류센터</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>연락처</h2>
+    <p>이메일: mani@architect.com</p>
+    <p>인스타그램: @mani.archi</p>
+  </section>
+
+</body>
+</html>
