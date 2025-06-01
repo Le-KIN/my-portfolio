@@ -86,7 +86,10 @@
     
 
     img.profile {
-        width: 500px;
+        max-width: 500px; /*데스크탑에서 500px까지만 커지도록 제한. */
+        width: 100%; /*이미지가 부모 요소의 너비를 초과하지 않게 함.*/
+        height: auto; /*가로세로 비율 유지*/
+        margin: 0 auto; /*이미지가 가운데로 오도록 함 (display: block 필요)*/
         border-radius: 20px; /* 너무 둥글지 않게 수정 */
     }
 
