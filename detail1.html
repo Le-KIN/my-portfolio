@@ -76,8 +76,8 @@
 
     .description ul li {
       margin-bottom: 5px;
-      color:#555;/* 추가 잘 작동하는지 보고 삭제 */
-      font-size: 0.9em; /* 추가 잘 작동하는지 보고 삭제 */
+      /* color:#555;/* 추가 잘 작동하는지 보고 삭제 */
+      /* font-size: 0.9em;  추가 잘 작동하는지 보고 삭제 */
       padding-left: 15px; /* 들여쓰기 */
       text-indent: -15px; /* 첫 줄 시작 위치 조정 */
       /* 리스트 앞에 작은 점을 CSS 널어주기 */
@@ -159,7 +159,7 @@
 
     .more-projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(auto-fit, 300px));
+      grid-template-columns: repeat(auto-fit, 300px);
       /* 최소 250px에서 auto-fit으로 남는공간 무시로 변경 최대 300px로 제한 */
       gap: 20px;
       width: 100%;
@@ -248,7 +248,7 @@
   <section style="padding: 40px; text-align:center;">
     <h2>다른 프로젝트 보기</h2>
     <!-- "dispay: flex; justify-content: center; flex-wrap: wrap; gap: 20px;"에서 "more-projects-grid" 변경 */ -->
-    <div style="more-projects-grid"
+    <div class="more-projects-grid"
     data-AOS="fade-up" data-aos-delay="300">
 
       <a href="/my-portfolio/" class="card-link">
