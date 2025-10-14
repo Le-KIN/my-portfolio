@@ -140,7 +140,11 @@
         width:100%;
       }
       .image-gallery {
-        margin-bottom:20p; /* 30px에서20px이미지와 설명 사이의 간격 확보 */
+        margin-bottom: 20px; /* 30px에서20px이미지와 설명 사이의 간격 확보 */
+      }
+      .more-projects-grid {
+        grid-template-columns: 1fr; /*1열, 100%너비 */
+        padding: 0 20px; /*모바일에서 좌우에 적절한 여백 추가 */
       }
     }
 
@@ -151,9 +155,14 @@
     }
 
     .more-projects-grid {
-      /*모바일에서는 최소 너비를 더 작게 설정하거나, 1열로 고정 */
-      grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-      /* 또는 grid-template-columns: 1fr; 로 100% 꽉 채우기 */
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+      /* 최소 250px 최대 300px로 제한 */
+      gap: 20px;
+      width: 100%;
+      max-width: 1400px; /* PC 화면에서 너무 옆으로 퍼지는 것을 방지 */
+      margin: 0 auto; /* 중앙 정렬 */
+      justify-content: center; /* 추가: 카드들이 컨테이너 중앙에 모이도록 명시 */
       padding: 0 10px; /* 섹션 안의 그리드에도 패딩 적용 가능 */
     }
 
@@ -237,7 +246,7 @@
     <h2>다른 프로젝트 보기</h2>
     <!-- "dispay: flex; justify-content: center; flex-wrap: wrap; gap: 20px;"에서 "more-projects-grid" 변경 */ -->
     <div style="more-projects-grid"
-    data-AOS="fade-up" data-aos-delay="300"></div>
+    data-AOS="fade-up" data-aos-delay="300">
 
       <a href="/my-portfolio/" class="card-link">
         <div class="card">
