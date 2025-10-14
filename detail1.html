@@ -124,7 +124,7 @@
       /* 이미지 높이를 강제로 비율로 지정 (예: 4:3 비율) */
       aspect-ratio: 4 / 3;
       object-fit: cover; /* 이미지가 잘리더라도 비율을 유지하면서 꽉 채움 */
-      border-radius: 8px; /* 10px에서 8px 수정 이미지 모서리 둥글게 */
+      border-radius: 10px; /* 모서리 둥글게 */
       margin-bottom: 15px; 
     }
 
@@ -143,8 +143,9 @@
         margin-bottom: 20px; /* 30px에서20px이미지와 설명 사이의 간격 확보 */
       }
       .more-projects-grid {
-        grid-template-columns: 1fr; /*1열, 100%너비 */
-        padding: 0 20px; /*모바일에서 좌우에 적절한 여백 추가 */
+        /* fr 1fr: 2열로 만들고, 남은 공간을 두 카드가 50%씩 균등하게 나눠 가집니다. */
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 10px; /*모바일에서 좌우에 적절한 여백 추가 */
       }
     }
 
@@ -156,8 +157,8 @@
 
     .more-projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
-      /* 최소 250px 최대 300px로 제한 */
+      grid-template-columns: repeat(auto-fit, minmax(auto-fit, 300px));
+      /* 최소 250px에서 auto-fit으로 남는공간 무시로 변경 최대 300px로 제한 */
       gap: 20px;
       width: 100%;
       max-width: 1400px; /* PC 화면에서 너무 옆으로 퍼지는 것을 방지 */
