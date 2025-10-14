@@ -58,9 +58,28 @@
     }
 
     .description p.En{
+    /* 1. 주요 설명 영역으 구조적 개선 */
+    /* 영어 설명 들여쓰기 개선 */
+    /* 기존 &ㅜㅠ네; 대신 padding-left 사용 */
+      padding-left: 15px; /* 약간의 들여쓰기 */
       margin:20px 0;
-      line-height: 1.2;
-      color:#a19d9d
+      line-height: 1.5; /* 1.2에서1.5변경 줄 간격 개선 */
+      color:#555;  /*#a19d9d에서 약간 어두운 회색 변경 */
+      font-size: 0.9em; /* 새롭게 추가 */
+    }
+
+    /* 주요업무 리스트 스타일 */
+    .description ul {
+      list-style-type: none; /* 리스트 기본 점 제거 */
+      padding-left: 0;
+    }
+
+    .description ul li {
+      margin-bottom: 5px;
+      padding-left: 15px; /* 들여쓰기 */
+      text-indent: -15px; /* 첫 줄 시작 위치 조정 */
+      /* 리스트 앞에 작은 점을 CSS 널어주기 */
+      /* content: "•" 와 같은 방식으로도 가능 */
     }
 
     /* 하이퍼링크 카드 스타일 기본화 */
@@ -74,9 +93,15 @@
         background: white;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        width: 300px;
         padding: 20px;
         transition: transform 0.3s, box-shadow 0.3s;
+        overflow: hidden; /* 혹시 모를 이미지 넘침 방지 */
+
+        height: 100%; /* width: 300px;제거 및 그리드 셀의 높이를 채우도록 설정 */
+        display: flex; /*내부 요소 세로 정렬을 위해 다시 flexbox 활용 */
+        flex-direction: column;
+        justify-content: space-between; /* 내용이 적어도 제목이 바닥에 붙지 않게 */
+        
     }
 
     @keyframes fadeInUp {
@@ -94,15 +119,20 @@
     }
 
     .card img {
+      /* 이미지 크기 통일 (카드 크기를 일정하게 만드는 핵심) */
       width: 100%;
-      border-radius: 10px;
+      /* 이미지 높이를 강제로 비율로 지정 (예: 4:3 비율) */
+      aspect-ratio: 4 / 3;
+      object-fit: cover; /* 이미지가 잘리더라도 비율을 유지하면서 꽉 채움 */
+      border-radius: 8px; /* 10px에서 8px 수정 이미지 모서리 둥글게 */
+      margin-bottom: 15px; 
     }
 
     /* 반응형: 화면 너비가 768px보다 작으면 세로 정렬 */
     @media (max-width: 768px) {
       .container {
         flex-direction: column; /* 세로 정렬 */
-        padding: 20px;
+        padding: 20px; /* 모바일에서 좌우 패딩 줄임 */
       }
       .image-gallery,
       .description {
@@ -110,7 +140,7 @@
         width:100%;
       }
       .image-gallery {
-        margin-bottom:30p; /* 이미지와 설명 사이의 간격 확보 */
+        margin-bottom:20p; /* 30px에서20px이미지와 설명 사이의 간격 확보 */
       }
     }
 
@@ -118,6 +148,13 @@
         margin-top: 60px;
         padding: 40px 20px;
         background-color: #fafafa;
+    }
+
+    .more-projects-grid {
+      /*모바일에서는 최소 너비를 더 작게 설정하거나, 1열로 고정 */
+      grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+      /* 또는 grid-template-columns: 1fr; 로 100% 꽉 채우기 */
+      padding: 0 10px; /* 섹션 안의 그리드에도 패딩 적용 가능 */
     }
 
     .back-button {
@@ -162,37 +199,45 @@
     <div class="description">
       <h2>프로젝트 개요</h2>
       <p>
-        훼손지정비사업 및 지구단위계획구역 내 물류창고 및 근린생활시설 신축공사<br><br>
-        - 위치: 경기도 하남시<br>
-        - 물류센터 연면적: 14,000㎡<br>
-        - 근린생활 연면적:  1,800㎡<br><br>
-        - 주요업무 <br>
-            .국토부 1차 협의안 기준으로 계획설계<br>
-            .인허가 도면작성 및 인허가 협의<br>
-            .공사 진행에 필요한 설계,감리,시공 업무 조율<br>
-            .각종 민원 및 공사중 발생하는 분쟁사항 조정 및 조율<br>
-            .건축물 관리 및 임차사 요청사항 협의 및 업무지원<br><br>
-        </p>
+        훼손지정비사업 및 지구단위계획구역 내 물류창고 및 근린생활시설 신축공사</p>
+        <ul>
+          <li>위치: 경기도 하남시</li>
+          <li>물류센터 연면적: 14,000㎡</li>
+          <li>근린생활 연면적:  1,800㎡</li>
+        </ul>
+        
+        <h3>주요 업무</h3>
+        <ul>
+          <li>국토부 1차 협의안 기준으로 계획설계</li>
+          <li>인허가 도면작성 및 인허가 협의</li>
+          <li>공사 진행에 필요한 설계,감리,시공 업무 조율</li>
+          <li>각종 민원 및 공사중 발생하는 분쟁사항 조정 및 조율</li>
+          <li>건축물 관리 및 임차사 요청사항 협의 및 업무지원</li>
+        </ul>
+
       <p class="En">
         Project: New Construction of Logistics Warehouse and Neighborhood Commercial Facilities<br>
         Location: Hanam-si, Gyeonggi-do<br>
         Total Floor Area - Warehouse: 14,000㎡<br>
         Total Floor Area - Neighborhood Commercial Facilities : 1,800㎡<br>
         Key Responsibilities<br>
-        &nbsp; - Plan design based on the first consultation draft from the Ministry of Land, Infrastructure and Transport (MOLIT).<br>
-        &nbsp; - Drafting of permit drawings and coordination for approvals/permits.<br>
-        &nbsp; - Coordination of design, supervision (construction management), and construction work required for project execution.<br>
-        &nbsp; - Adjustment and mediation of various civil complaints and disputes arising during construction.<br>
-        &nbsp; - Building management, and consultation/support for requests from tenants.
-      </p>
+        </p>
+        <ul style="padding-left: 20px; list-style-type:disc;">
+          <li>Plan design based on the first consultation draft from the Ministry of Land, Infrastructure and Transport (MOLIT).</li>
+          <li>Drafting of permit drawings and coordination for approvals/permits.</li>
+          <li>Coordination of design, supervision (construction management), and construction work required for project execution.</li>
+          <li>Adjustment and mediation of various civil complaints and disputes arising during construction.</li>
+          <li>Building management, and consultation/support for requests from tenants.</li>
+        </ul>
     </div>
   </div>
 
   <!-- 하단 다른 프로젝트로 연결되는 카드 -->
   <section style="padding: 40px; text-align:center;">
     <h2>다른 프로젝트 보기</h2>
-    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px;"
-    data-AOS="fade-up" data-aos-delay="300">
+    <!-- "dispay: flex; justify-content: center; flex-wrap: wrap; gap: 20px;"에서 "more-projects-grid" 변경 */ -->
+    <div style="more-projects-grid"
+    data-AOS="fade-up" data-aos-delay="300"></div>
 
       <a href="/my-portfolio/" class="card-link">
         <div class="card">
@@ -205,28 +250,24 @@
         <div class="card">
           <img src="proj3.jpg" alt="김해">
           <h3>김해 덕암 물류센터</h3>
-          
         </div>
       </a>
       <a href="/my-portfolio/" class="card-link">
         <div class="card">
           <img src="proj4.jpg" alt="test">
           <h3>세종 문곡 물류센터</h3>
-         
         </div>
       </a>
       <a href="/my-portfolio/" class="card-link">
         <div class="card">
           <img src="proj5.jpg" alt="test">
           <h3>송말리 물류센터</h3>
-          
         </div>
       </a>
       <a href="/my-portfolio/" class="card-link">
         <div class="card">
           <img src="proj6.jpg" alt="test">
           <h3>도립리 물류센터</h3>
-          
         </div>
       </a>
       <a href="/my-portfolio/" class="card-link">
