@@ -75,7 +75,7 @@
     main p {
         margin:5px 0; /* 위 아래 여백줄이기 (기본은 16px) 5px(위아래) 0(좌우)*/
         line-height:1.2; /* 줄간 간격 줄이기 (기본은 1.6) */
-        color: black
+        color: black;
     }
 
     main p.En {
@@ -112,12 +112,15 @@
     }
 
     .card:hover {
-      transform: scale(1.05); /* 카드 전체 확대 */
+      /* transform: scale(1.05); /* 카드 전체 확대 */
+      transform: translateY(-8px) scale(1.03); /* 직관적으로 "프로젝트 카드가 떠오르는 느낌" */
       box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     }
 
     .card img {
       width: 100%;
+      aspect-ratio: 4 / 3 ; /* 4:3 비율 고정 */
+      object-fit: cover;   /* 이미지가 비율 안에 꽉 차게 잘림 */
       border-radius: 10px;
       filter: grayscale(100%); /* 기본 흑백 */
       transition: transform 0.3s ease, filter 0.3s ease; /* 부드러운 효과 추가 */
@@ -187,7 +190,7 @@
 <main id="about">
     <h2>About</h2>
     <p>안녕하세요. 마니입니다.</p>
-    <p>창창의적인 설계를 통해 공간에 감동을 전하는 일을 하고 있습니다.</p>
+    <p>창의적인 설계를 통해 공간에 감동을 전하는 일을 하고 있습니다.</p>
     <p>현재 프리랜서로 건축 설계와 공간 디자인, 일러스트 작업을 진행하고 있으며,</p>
     <p>각 프로젝트에 맞는 최적의 결과를 위해 함께 고민하고 있습니다.</p>
     <p>협업이나 의뢰에 관심 있으신 분들은 아래 연락처로 편하게 문의해주세요.</p>
@@ -233,12 +236,12 @@
         <p>허가도면 및 실시도면 작성 사용승인 업무지원 (저온창고 및 상온창고)</p>
       </div>
       <div class="card">
-        <img src="proj6.jpg"도립리">
+        <img src="proj6.jpg" alt="도립리">
         <h3>이천 도립리 물류센터</h3>
         <p>계획도면 및 허가도면 작성 (저온창고 및 상온창고)</p>
       </div>
       <div class="card">
-        <img src="proj7.jpg"팔야리">
+        <img src="proj7.jpg" alt="팔야리">
         <h3>남양주 팔야리 데이터센터</h3>
         <p>계획도면 작성</p>
       </div>
@@ -254,8 +257,18 @@
       </div>
       <div class="card">
         <img src="proj10.jpg" alt="도시형생활주택">
-        <h3>강능 사천진리 도시형생활주택</h3>
-        <p>계획,허가도면 작성 및 심의자료 작성 (저온창고 및 상온창고)</p>
+        <h3>강릉 사천진리 도시형생활주택</h3>
+        <p>계획,허가도면 작성 및 심의자료 작성 </p>
+      </div>
+      <div class="card">
+        <img src="proj11-1.jpg" alt="빙그레">
+        <h3>남양주 도농1공장 증설계획</h3>
+        <p>허가도면 작성 및 심의자료 작성</p>
+      </div>
+      <div class="card">
+        <img src="proj11-2.jpg" alt="전주">
+        <h3>전주 만성 U-Tower</h3>
+        <p>사용승인 업무지원</p>
       </div>
       <div class="card">
         <img src="proj12.jpg" alt="남원">
