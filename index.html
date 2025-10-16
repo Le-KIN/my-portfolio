@@ -129,7 +129,7 @@
     .card .overlay {
       position: absolute; 
       inset: 0;
-      background: rgba(0, 0, 0, 0.4);
+      /* background: rgba(0, 0, 0, 0.4); */
       color: #fff;
       opacity: 0;
       transform: translateY(30%);
@@ -138,11 +138,28 @@
       justify-content: center;
       align-items: center;
       transition: opacity 0.3s ease, transform 0.3s ease;
+
+      align-items: flex-end; /* 하단 정렬 */
+      justify-content: flex-start; /* 왼쪽 정렬 */
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);
+      /* 밑은 진하고 위로 갈수록 투명해짐 */
     }
 
     .card:hover .overlay {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .card .text-box h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .card .text-box p {
+      margin: 5px 0 0;
+      font-size: 0.9rem;
+      opacity: 0.9;
     }
 
 
@@ -232,8 +249,10 @@
         <a class="card-link" href="detail1.html">
         <img src="proj1.jpeg" alt="초이동">
         <div class="overlay">
+          <div class="text-box">
         <h3>하남 물류센터 및 근린생활시설</h3>
         <p>계획설계 허가 및 실시도면 작성 후 공사 감독관, 건축물 유지관리</p>
+        </div>
         </div>
         </a>
       </div>
