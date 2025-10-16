@@ -103,14 +103,12 @@
     }
     
     .card {
-      position: relative; /* 이걸 추가해야 기준점이 잡혀서 원하는 위치로 글씨가 이동 */
       background: white;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       width: 400px;
       padding: 20px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      overflow: hidden; /* 이걸 넣으면 이미지+overlay 깔끔하게 유지 */
     }
 
     .card:hover {
@@ -127,52 +125,6 @@
       filter: grayscale(100%); /* 기본 흑백 */
       transition: transform 0.3s ease, filter 0.3s ease; /* 부드러운 효과 추가 */
     }
-
-    .card .overlay {
-      position: absolute; 
-      inset: 0;
-      /* background: rgba(0, 0, 0, 0.4); */
-      color: #fff;
-      opacity: 0;
-      transform: translateY(30%);
-      display: flex;
-      flex-direction: column;
-      justify-content: center; 
-      align-items: center;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);
-      /* 밑은 진하고 위로 갈수록 투명해짐 */
-    }
-
-    .card:hover .overlay {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card .text-box {
-      position: absolute;
-      bottom: 20px; /* 하단에서 약간 위로 */
-      left: 50%; /* 가로 기준 중앙으로 이동 */
-      transform: translateX(-50%); /* 가운데 정렬 보정 */
-      color: white;
-      text-align: center;
-       width: 100%; /* 텍스트를 가운데 정렬하기 위해 전체 너비 사용 */
-
-    }
-
-    .card .text-box h3 {
-      margin: 0;
-      font-size: 1.2rem;
-      font-weight: 600; 
-    }
-
-    .card .text-box p {
-      margin: 5px 0 0;
-      font-size: 0.9rem;
-      opacity: 0.9;
-      color: white;
-    }
-
 
     .card:hover img {
       filter: grayscale(0%); /* 마우스를 올리면 컬러로 */
@@ -253,28 +205,21 @@
     <img class="profile" src="character.png" alt="건축가 마니 사진">
 </main>
 
+
 <main id="projects">
     <h2>Projects</h2>
     <div class="portfolio-container">
       <div class="card">
         <a class="card-link" href="detail1.html">
         <img src="proj1.jpeg" alt="초이동">
-        <div class="overlay">
-          <div class="text-box">
         <h3>하남 물류센터 및 근린생활시설</h3>
         <p>계획설계 허가 및 실시도면 작성 후 공사 감독관, 건축물 유지관리</p>
-        </div>
-        </div>
         </a>
       </div>
       <div class="card">
         <img src="proj2.jpg" alt="평택">
-        <div class="overlay">
-          <div class="text-box">
-            <h3>평택 물류센터</h3>
-            <p>계획도면 및 허가도면 작성 (저온창고 및 상온창고)</p>
-          </div>
-        </div>
+        <h3>평택 물류센터</h3>
+        <p>계획도면 및 허가도면 작성 (저온창고 및 상온창고)</p>
       </div>
       <div class="card">
         <img src="proj3.jpg" alt="김해">
