@@ -103,12 +103,14 @@
     }
     
     .card {
+      position: relative; /* 이걸 추가해야 기준점이 잡혀서 원하는 위치로 글씨가 이동 */
       background: white;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       width: 400px;
       padding: 20px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden; /* 이걸 넣으면 이미지+overlay 깔끔하게 유지 */
     }
 
     .card:hover {
@@ -135,12 +137,12 @@
       transform: translateY(30%);
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      /* justify-content: center; */
+      /* align-items: center; */
       transition: opacity 0.3s ease, transform 0.3s ease;
 
-      align-items: flex-start; /* 하단 정렬 end - start*/
-      justify-content: flex-end; /* 왼쪽 정렬 start -end */
+      align-items: flex-start; /* 왼쪽 정렬 (가로축)   */
+      justify-content: flex-end; /* 하단 정렬 (세로축)  */
       background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);
       /* 밑은 진하고 위로 갈수록 투명해짐 */
     }
