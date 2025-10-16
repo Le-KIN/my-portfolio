@@ -140,8 +140,6 @@
       justify-content: center; 
       align-items: center;
       transition: opacity 0.3s ease, transform 0.3s ease;
-
-
       background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);
       /* 밑은 진하고 위로 갈수록 투명해짐 */
     }
@@ -151,10 +149,21 @@
       transform: translateY(0);
     }
 
+    .card .text-box {
+      position: absolute;
+      bottom: 20px; /* 하단에서 약간 위로 */
+      left: 50%; /* 가로 기준 중앙으로 이동 */
+      transform: translateX(-50%); /* 가운데 정렬 보정 */
+      color: white;
+      text-align: center;
+       width: 100%; /* 텍스트를 가운데 정렬하기 위해 전체 너비 사용 */
+
+    }
+
     .card .text-box h3 {
       margin: 0;
       font-size: 1.2rem;
-      font-weight: 600;
+      font-weight: 600; 
     }
 
     .card .text-box p {
